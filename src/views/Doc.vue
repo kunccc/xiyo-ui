@@ -37,12 +37,12 @@ export default {
 
 <style lang="scss" scoped>
 aside {
-  position: fixed;
   background: lightblue;
-  top: 0;
-  left: 0;
   width: 150px;
   padding: 70px 16px 16px 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
   h2 {
     margin-bottom: 8px;
   }
