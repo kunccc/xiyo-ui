@@ -38,18 +38,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-aside {
-  background: lightblue;
-  width: 150px;
-  padding: 70px 16px 16px 16px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  h2 {
-    margin-bottom: 8px;
+.content {
+  margin: 66px 16px 16px 166px;
+  aside {
+    background: lightblue;
+    width: 150px;
+    height: 100%;
+    padding: 70px 16px 16px 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    h2 {
+      margin-bottom: 8px;
+    }
+    li {
+      padding: 4px 0;
+    }
   }
-  li {
-    padding: 4px 0;
+  main {
+  }
+}
+@media (max-width: 500px) {
+  .content {
+    margin-left: 16px;
   }
 }
 </style>
