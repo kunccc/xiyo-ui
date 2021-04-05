@@ -1,11 +1,11 @@
 <template>
+  <TopNav/>
   <div class="banner">
-    <TopNav/>
     <h1>西柚 UI</h1>
-    <h2>一个轻量的 UI 框架</h2>
+    <h2>一个轻量级 UI 框架</h2>
     <p class="actions">
-      <a>Github</a>
-      <a>开始</a>
+      <a href="https://www.github.com">Github</a>
+      <router-link to="/doc">开始</router-link>
     </p>
   </div>
 </template>
@@ -19,5 +19,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.banner {
+  text-align: center;
+  margin-top: 100px;
+  .actions {
+    padding-top: 50px;
+    a {
+      background: #FF8D78;
+      color: #fff;
+      padding: 4px 10px;
+      margin: 0 10px;
+      border-radius: 16px;
+    }
+  }
+}
 </style>
