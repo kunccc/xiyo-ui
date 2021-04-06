@@ -1,5 +1,5 @@
 <template>
-  <div>Tabs</div>
+  Doc
 </template>
 
 <script lang="ts">

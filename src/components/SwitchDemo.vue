@@ -1,10 +1,16 @@
 <template>
-  <Switch/>
+  <Switch v-model:value="isOpen"/>
 </template>
-<script>
-import Switch from '../lib/Switch'
+
+<script lang="ts">
+import Switch from '../lib/Switch.vue';
+import {ref} from 'vue';
 
 export default {
-  components: {Switch}
-}
+  components: {Switch},
+  setup() {
+    const isOpen = ref(false);
+    return {isOpen};
+  }
+};
 </script>
