@@ -10,7 +10,6 @@ export default {
   setup(props, context) {
     const toggle = () => {
       context.emit('update:value', !props.value);
-      console.log(!props.value);
     };
     return {toggle};
   }
@@ -33,7 +32,7 @@ button {
     position: absolute;
     top: 2px;
     left: 2px;
-    transition: left .3s;
+    transition: all .3s;
   }
   &.checked {
     background: #FF8D78;
@@ -43,6 +42,17 @@ button {
   }
   &:focus {
     outline: none
+  }
+  &:active {
+    span {
+      width: 22px;
+    }
+  }
+  &.checked:active {
+    span {
+      width: 22px;
+      margin-left: -4px;
+    }
   }
 }
 </style>
