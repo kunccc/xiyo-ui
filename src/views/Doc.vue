@@ -48,6 +48,7 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 9;
     h2 {
       margin-bottom: 8px;
     }

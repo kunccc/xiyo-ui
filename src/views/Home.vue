@@ -2,7 +2,7 @@
   <TopNav/>
   <div class="banner">
     <h1>西柚 UI</h1>
-    <h2>一个轻量级 UI 框架</h2>
+    <h2>一个基于 Vue3 的 UI 框架</h2>
     <p class="actions">
       <a href="https://www.github.com">Github</a>
       <router-link to="/doc">开始</router-link>
@@ -21,7 +21,10 @@ export default {
 <style lang="scss" scoped>
 .banner {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 160px;
+  h1 {
+    margin-bottom: 20px
+  }
   .actions {
     padding-top: 50px;
     a {
