@@ -32,12 +32,16 @@ button {
     position: absolute;
     top: 2px;
     left: 2px;
+    transition: left .3s;
   }
   &.checked {
     background: #FF8D78;
     span {
       left: 24px;
     }
+  }
+  &:focus {
+    outline: none
   }
 }
 </style>
