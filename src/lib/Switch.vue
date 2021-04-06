@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggle" :class="{checked: value}"><span></span></button>
+  <button class="xiyo-switch" @click="toggle" :class="{'xiyo-checked': value}"><span></span></button>
 </template>
 
 <script lang="ts">
@@ -16,8 +16,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-button {
+<style lang="scss">
+.xiyo-switch {
   width: 44px;
   height: 22px;
   border: none;
@@ -34,7 +34,7 @@ button {
     left: 2px;
     transition: all .3s;
   }
-  &.checked {
+  &.xiyo-checked {
     background: #FF8D78;
     span {
       left: 24px;
@@ -48,7 +48,7 @@ button {
       width: 22px;
     }
   }
-  &.checked:active {
+  &.xiyo-checked:active {
     span {
       width: 22px;
       margin-left: -4px;
