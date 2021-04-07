@@ -1,17 +1,21 @@
 <template>
   <template v-if="visible">
-    <div class="xiyo-dialog-overlay"></div>
-    <div class="xiyo-dialog-wrapper">
-      <header>标题 <span class="xiyo-dialog-close"/></header>
-      <main>
-        <p>第一行字</p>
-        <p>第二行字</p>
-      </main>
-      <footer>
-        <Button level="main">OK</Button>
-        <Button>Cancel</Button>
-      </footer>
-    </div>
+    <Teleport to="body">
+      <div class="xiyo-dialog-overlay" @click="onClickOverlay"/>
+      <div class="xiyo-dialog-wrapper">
+        <header>
+          <slot name="title"/>
+          <span @click="close" class="xiyo-dialog-close"/>
+        </header>
+        <main>
+          <slot name="content"/>
+        </main>
+        <footer>
+          <Button level="main" @click="ok">OK</Button>
+          <Button @click="cancel">Cancel</Button>
+        </footer>
+      </div>
+    </Teleport>
   </template>
 </template>
 
@@ -24,7 +28,33 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    },
+    closeOnOverlay: {
+      type: Boolean,
+      default: true
+    },
+    ok: {
+      type: Function
+    },
+    cancel: {
+      type: Function
     }
+  },
+  setup(props, context) {
+    const close = () => {
+      context.emit('update:visible', false);
+    };
+    const onClickOverlay = () => {
+      if (props.closeOnOverlay) close();
+    };
+    const ok = () => {
+      if (props.ok?.()) close();
+    };
+    const cancel = () => {
+      props.cancel?.();
+      close();
+    };
+    return {close, onClickOverlay, ok, cancel};
   }
 };
 </script>

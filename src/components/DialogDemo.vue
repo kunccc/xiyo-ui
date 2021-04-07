@@ -1,15 +1,25 @@
 <template>
   <h1>Dialog 示例</h1>
   <h3>示例1</h3>
-  <div>
-    <Button @click="toggle">toggle</Button>
-    <Dialog :visible="visible"/>
-  </div>
+  <Button @click="toggle">toggle</Button>
+  <Dialog v-model:visible="visible" :close-on-overlay="false"
+          :ok="f1" :cancel="f2">
+    <template v-slot:title>
+      <strong>标题</strong>
+    </template>
+    <template v-slot:content>
+      <strong>hello</strong>
+      <p>world</p>
+    </template>
+  </Dialog>
+  <h3>示例2</h3>
+  <Button @click="showDialog">show</Button>
 </template>
 <script lang="ts">
 import Dialog from '../lib/Dialog.vue';
 import Button from '../lib/Button.vue';
-import {ref} from 'vue';
+import {ref, h} from 'vue';
+import {openDialog} from '../lib/openDialog';
 
 export default {
   components: {Dialog, Button},
@@ -18,7 +28,17 @@ export default {
     const toggle = () => {
       visible.value = !visible.value;
     };
-    return {visible, toggle};
+    const f1 = () => {return false;};
+    const f2 = () => {};
+    const showDialog = () => {
+      openDialog({
+        title: h('strong', {}, '标题'),
+        content: '你好',
+        ok() {console.log('ok');},
+        cancel() {console.log('cancel');}
+      });
+    };
+    return {visible, toggle, f1, f2, showDialog};
   }
 };
 </script>
