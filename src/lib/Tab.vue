@@ -1,6 +1,6 @@
 <template>
   <div>
-    Tabs 组件
+    Tab 组件
   </div>
 </template>
 
