@@ -1,20 +1,21 @@
 <template>
   <div class="xiyo-tabs">
-    <div class="xiyo-tabs-nav">
+    <div class="xiyo-tabs-nav" ref="container">
       <div class="xiyo-tabs-nav-item" :class="{selected: t === selected}" v-for="(t, index) in titles"
-           @click="select(t)" :key="index">
+           :ref="el => { if (t === selected) selectedItem = el}" @click="select(t)" :key="index">
         {{ t }}
       </div>
+      <div class="xiyo-tabs-nav-indicator" ref="indicator"/>
     </div>
     <div class="xiyo-tabs-content">
-      <component class="xiyo-tabs-content-item" :class="{selected: subtag.props.title === selected}"
-                 v-for="(subtag, index) in subtags" :is="subtag" :key="index"/>
+      <component :is="current" :key="current.props.title"/>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Tab from './Tab.vue';
+import {ref, onMounted, watchEffect, computed} from 'vue';
 
 export default {
   props: {
@@ -23,9 +24,25 @@ export default {
     }
   },
   setup(props, context) {
+    const selectedItem = ref<HTMLDivElement>(null);
+    const indicator = ref<HTMLDivElement>(null);
+    const container = ref<HTMLDivElement>(null);
+    onMounted(() => {
+      watchEffect(() => {
+        const {width} = selectedItem.value.getBoundingClientRect();
+        indicator.value.style.width = width + 'px';
+        const {left: left1} = container.value.getBoundingClientRect();
+        const {left: left2} = selectedItem.value.getBoundingClientRect();
+        const left = left2 - left1;
+        indicator.value.style.left = left + 'px';
+      });
+    });
     const subtags = context.slots.default();
     subtags.forEach(tag => {
       if (tag.type !== Tab) throw new Error('The subtag of Tabs must be Tab');
+    });
+    const current = computed(() => {
+      return subtags.find(tag => tag.props.title === props.selected);
     });
     const titles = subtags.map(tag => {
       return tag.props.title;
@@ -33,7 +50,7 @@ export default {
     const select = (title: string) => {
       context.emit('update:selected', title);
     };
-    return {subtags, titles, select};
+    return {subtags, titles, select, selectedItem, indicator, container, current};
   }
 };
 </script>
@@ -44,6 +61,7 @@ export default {
     display: flex;
     color: #333;
     border-bottom: 1px solid #d9d9d9;
+    position: relative;
     &-item {
       padding: 8px 0;
       margin: 0 16px;
@@ -55,15 +73,18 @@ export default {
         color: #40a9ff;
       }
     }
+    &-indicator {
+      background: #40a9ff;
+      height: 2px;
+      width: 100px;
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      transition: all .3s;
+    }
   }
   &-content {
     padding: 8px 0;
-    &-item {
-      display: none;
-      &.selected {
-        display: block;
-      }
-    }
   }
 }
 </style>
