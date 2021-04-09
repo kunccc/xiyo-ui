@@ -1,10 +1,14 @@
 <template>
   <div class="topNav">
-    <div class="toggleAside" @click="toggleAside"></div>
-    <div class="logo">LOGO</div>
+    <div @click="toggleAside">
+      <svg class="icon">
+        <use xlink:href="#icon-xiyo"></use>
+      </svg>
+    </div>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <li>
+        <router-link to="/doc">文档</router-link>
+      </li>
     </ul>
   </div>
 </template>
@@ -16,6 +20,7 @@ export default {
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible');
     const toggleAside = () => {
+      console.log('fuck');
       asideVisible.value = !asideVisible.value;
     };
     return {toggleAside};
@@ -25,8 +30,6 @@ export default {
 
 <style lang="scss" scoped>
 .topNav {
-  background: #FF8D78;
-  color: #fff;
   display: flex;
   padding: 16px;
   position: fixed;
@@ -34,8 +37,10 @@ export default {
   left: 0;
   width: 100%;
   z-index: 10;
-  .logo {
+  .icon {
     margin-right: auto;
+    transform: scale(1.7);
+    fill: darken(#FF8D78, 10);
   }
   .menu {
     display: flex;

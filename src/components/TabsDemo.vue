@@ -4,6 +4,7 @@
   <Tabs v-model:selected="selectedTitle">
     <Tab title="导航1">内容1</Tab>
     <Tab title="导航2222222">内容2</Tab>
+    <Tab title="你是猪吗">内容3</Tab>
   </Tabs>
 </template>
 <script lang="ts">
