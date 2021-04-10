@@ -59,7 +59,13 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #fafafa;
+      transition: background .3s;
+      &:hover {
+        background: #fafafa;
+        .xiyo-theme-link {
+          background: #fafafa;
+        }
+      }
       &-button {
         transition: all .3s;
         transform: translateX(32px);
