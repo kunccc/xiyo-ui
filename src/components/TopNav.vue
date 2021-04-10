@@ -1,5 +1,5 @@
 <template>
-  <div class="topNav">
+  <div class="topNav" :class="{underlineVisible}">
     <svg class="toggleAside" @click="toggleAside" v-if="toggleAsideButtonVisible">
       <use xlink:href="#icon-menu"></use>
     </svg>
@@ -24,6 +24,10 @@ export default {
     toggleAsideButtonVisible: {
       type: Boolean,
       default: false
+    },
+    underlineVisible: {
+      type: Boolean,
+      default: false
     }
   },
   setup() {
@@ -45,6 +49,10 @@ export default {
   left: 0;
   width: 100%;
   z-index: 10;
+  &.underlineVisible {
+    background: #fff;
+    box-shadow: 0 0 1px fade-out(black, .6);
+  }
   .logo {
     margin-right: auto;
     .icon {

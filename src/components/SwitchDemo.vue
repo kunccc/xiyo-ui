@@ -1,6 +1,6 @@
 <template>
-  <h1>Switch 开关</h1>
-  <p>用于两种对立状态间的切换</p>
+  <h2>Switch 开关</h2>
+  <p>用于两种对立状态间的切换。</p>
   <Demo :component="Switch1Demo"/>
   <Demo :component="Switch2Demo"/>
 </template>
@@ -17,3 +17,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+</style>

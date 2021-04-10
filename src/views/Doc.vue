@@ -1,5 +1,5 @@
 <template>
-  <TopNav toggleAsideButtonVisible/>
+  <TopNav toggleAsideButtonVisible underlineVisible/>
   <div class="content">
     <aside v-if="asideVisible">
       <h2>文档</h2>
@@ -17,16 +17,16 @@
       <h2>组件列表</h2>
       <ol>
         <li>
-          <router-link to="/doc/switch">Switch 组件</router-link>
+          <router-link to="/doc/switch">Switch 开关</router-link>
         </li>
         <li>
-          <router-link to="/doc/button">Button 组件</router-link>
+          <router-link to="/doc/button">Button 按钮</router-link>
         </li>
         <li>
-          <router-link to="/doc/dialog">Dialog 组件</router-link>
+          <router-link to="/doc/dialog">Dialog 对话</router-link>
         </li>
         <li>
-          <router-link to="/doc/tabs">Tabs 组件</router-link>
+          <router-link to="/doc/tabs">Tabs 标签页</router-link>
         </li>
       </ol>
     </aside>
@@ -53,22 +53,23 @@ export default {
 .content {
   margin: 66px 16px 16px 166px;
   aside {
-    background: lightblue;
+    background: #fff;
     width: 150px;
     height: 100%;
-    padding: 70px 16px 16px 16px;
+    padding: 56px 16px 16px 16px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 9;
     h2 {
-      margin-bottom: 8px;
+      margin: 16px 0 8px;
     }
     li {
       padding: 4px 0;
     }
   }
   main {
+    padding: 20px 14px;
   }
 }
 @media (max-width: 500px) {

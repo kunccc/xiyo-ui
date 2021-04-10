@@ -1,12 +1,16 @@
 <template>
   <div class="demo">
-    <h2>{{ component.__sourceCodeTitle }}</h2>
+    <h3>{{ component.__sourceCodeTitle }}</h3>
     <div class="demo-content">
-      <component :is="component"/>
+      <div class="demo-content-component">
+        <component :is="component"/>
+      </div>
       <div class="demo-content-action">
         <Button theme="link" @click="codeVisible = !codeVisible">查看代码</Button>
       </div>
-      <pre v-if="codeVisible" class="language-html" v-html="html"/>
+      <div class="demo-content-code" :class="{codeVisible}">
+        <pre v-html="html"/>
+      </div>
     </div>
   </div>
 </template>
@@ -26,7 +30,7 @@ export default {
   },
   setup(props) {
     const html = computed(() => {
-      return Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'html');
+      return Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'javascript');
     });
     const codeVisible = ref(false);
     return {Prism, html, codeVisible};
@@ -36,18 +40,33 @@ export default {
 
 <style lang="scss" scoped>
 .demo {
-  margin: 60px 0;
+  margin: 50px 0;
   &-content {
-    border: 1px solid #ddd;
-    padding: 16px;
     margin-top: 16px;
+    border: 1px solid #ddd;
+    &-component {
+      border-bottom: 1px solid #ddd;
+      padding: 20px 14px;
+    }
     &-action {
       display: flex;
       justify-content: center;
+      background: #fafafa;
     }
-    pre {
-      font-size: 14px;
-      font-family: Consolas, 'Courier New', Courier, monospace;
+    &-code {
+      transition: all .7s;
+      overflow: hidden;
+      max-height: 0;
+      &.codeVisible {
+        max-height: 300px;
+      }
+      pre {
+        margin: 0;
+        padding: 14px;
+        background: #fafafa;
+        font-size: 14px;
+        font-family: Consolas, 'Courier New', Courier, monospace;
+      }
     }
   }
 }
