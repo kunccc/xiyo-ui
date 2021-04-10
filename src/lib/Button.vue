@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang="scss">
-$color-xiyo: #409eff;
+$color-xiyo: #FF8D78;
 $color-danger: #ff4d4f;
 .xiyo-button {
   height: 30px;
@@ -60,7 +60,6 @@ $color-danger: #ff4d4f;
   border: 1px solid #ddd;
   border-radius: 6px;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
-  margin-left: 8px;
   transition: background .3s;
   &:hover,
   &:focus {

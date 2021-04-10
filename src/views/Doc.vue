@@ -70,6 +70,7 @@ export default {
   }
   main {
     padding: 20px 14px;
+    transition: all .3s;
   }
 }
 @media (max-width: 500px) {

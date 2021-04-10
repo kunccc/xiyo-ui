@@ -74,6 +74,7 @@ export default {
     height: 20px;
     display: none;
     fill: #FF8D78;
+    cursor: pointer;
   }
   @media (max-width: 500px) {
     .menu {

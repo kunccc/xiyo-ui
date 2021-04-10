@@ -5,8 +5,14 @@
       <div class="demo-content-component">
         <component :is="component"/>
       </div>
-      <div class="demo-content-action">
-        <Button theme="link" @click="codeVisible = !codeVisible">查看代码</Button>
+      <div class="demo-content-action" @click="codeVisible = !codeVisible">
+        <svg class="icon" :class="{codeVisible}">
+          <use xlink:href="#icon-arrow"></use>
+        </svg>
+        <div class="demo-content-action-button">
+          <Button theme="link" v-if="!codeVisible">查看代码</Button>
+          <Button theme="link" v-else>隐藏代码</Button>
+        </div>
       </div>
       <div class="demo-content-code" :class="{codeVisible}">
         <pre v-html="html"/>
@@ -49,12 +55,43 @@ export default {
       padding: 20px 14px;
     }
     &-action {
+      height: 30px;
       display: flex;
       justify-content: center;
+      align-items: center;
       background: #fafafa;
+      &-button {
+        transition: all .3s;
+        transform: translateX(32px);
+        opacity: 0;
+        .xiyo-theme-link:hover {
+          color: #FF8D78;
+        }
+      }
+      .icon {
+        fill: #FF8D78;
+        transition: all .3s;
+        transform: scale(1.3) translateX(34px);
+        &.codeVisible {
+          transform: scale(1.3) translateX(34px) rotate(180deg);
+        }
+      }
+      &:hover {
+        cursor: pointer;
+        .demo-content-action-button {
+          transform: translateX(6px);
+          opacity: 1;
+        }
+        .icon {
+          transform: scale(1.3) translateX(6px);
+          &.codeVisible {
+            transform: scale(1.3) translateX(6px) rotate(180deg);
+          }
+        }
+      }
     }
     &-code {
-      transition: all .7s;
+      transition: all .4s;
       overflow: hidden;
       max-height: 0;
       &.codeVisible {

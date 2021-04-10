@@ -32,7 +32,7 @@ export default {
     position: absolute;
     top: 2px;
     left: 2px;
-    transition: all .3s;
+    transition: all .25s;
   }
   &.xiyo-checked {
     background: #FF8D78;
