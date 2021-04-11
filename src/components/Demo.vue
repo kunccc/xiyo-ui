@@ -101,7 +101,7 @@ export default {
       overflow: hidden;
       max-height: 0;
       &.codeVisible {
-        max-height: 300px;
+        max-height: 600px;
       }
       pre {
         margin: 0;

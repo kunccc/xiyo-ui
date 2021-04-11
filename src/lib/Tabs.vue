@@ -70,11 +70,11 @@ export default {
         margin-left: 0;
       }
       &.selected {
-        color: #40a9ff;
+        color: #FF8D78;
       }
     }
     &-indicator {
-      background: #40a9ff;
+      background: #FF8D78;
       height: 2px;
       width: 100px;
       position: absolute;
