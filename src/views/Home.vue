@@ -47,11 +47,12 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
+  height: 300px;
   background: linear-gradient(145deg, rgba(255, 224, 218, 1) 0%, rgba(255, 207, 198, 1) 100%);
   clip-path: ellipse(80% 60% at 50% 40%);
   .banner {
     text-align: center;
-    padding-top: 90px;
+    padding-top: 70px;
     color: #FF8D78;
     h1 {
       margin-bottom: 20px
@@ -63,8 +64,8 @@ export default {
         background: #FF8D78;
         color: #fff;
         padding: 6px 14px;
-        margin: 0 10px;
-        border-radius: 16px;
+        margin: 0 14px;
+        border-radius: 6px;
       }
     }
   }

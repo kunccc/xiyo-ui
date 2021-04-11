@@ -1,8 +1,9 @@
 <template>
   <TopNav toggleAsideButtonVisible underlineVisible/>
+  <div class="mask" :class="{asideVisible}" @click="toggleAside"/>
   <div class="content">
     <Aside/>
-    <main @click="toggleAside">
+    <main @click="toggleAside" :class="{asideVisible}">
       <router-view/>
     </main>
   </div>
@@ -20,7 +21,7 @@ export default {
     const toggleAside = () => {
       asideVisible.value = false;
     };
-    return {toggleAside};
+    return {toggleAside, asideVisible};
   }
 };
 </script>
@@ -28,7 +29,7 @@ export default {
 <style lang="scss" scoped>
 .content {
   main {
-    padding: 86px 30px 36px 180px;
+    padding: 86px 30px 36px 230px;
     transition: all .3s;
   }
 }
@@ -36,6 +37,25 @@ export default {
   .content {
     main {
       padding-left: 30px;
+      transform: translateX(0);
+      &.asideVisible {
+        transform: translateX(200px);
+        overflow: hidden;
+      }
+    }
+  }
+  .mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.28);
+    opacity: 0;
+    z-index: -1;
+    &.asideVisible {
+      opacity: 1;
+      z-index: 8;
     }
   }
 }

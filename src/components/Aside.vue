@@ -44,9 +44,9 @@ export default {
 <style lang="scss" scoped>
 .aside {
   background: #fff;
-  width: 150px;
+  width: 200px;
   height: 100%;
-  padding: 56px 16px 16px 16px;
+  padding: 68px 16px 16px 28px;
   position: fixed;
   top: 0;
   left: 0;
@@ -55,11 +55,11 @@ export default {
   transition: all .3s;
   p {
     font-size: 22px;
-    margin: 16px 0 8px;
+    margin: 20px 0 10px;
   }
   li {
-    padding: 4px 0;
-    color: #666666;
+    padding: 6px 0;
+    color: #888;
     &:hover {
       color: #FF8D78;
     }
@@ -70,7 +70,7 @@ export default {
 }
 @media (max-width: 500px) {
   .aside {
-    transform: translateX(-100%);
+    transform: translateX(-200px);
     &.asideVisible {
       transform: translateX(0);
     }

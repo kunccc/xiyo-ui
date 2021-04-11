@@ -1,9 +1,11 @@
 <template>
   <div class="topNav" :class="{underlineVisible}">
-    <svg class="toggleAside" @click="toggleAside" v-if="toggleAsideButtonVisible">
-      <use xlink:href="#icon-menu"></use>
-    </svg>
-    <router-link to="/" class="logo">
+    <div title="菜单">
+      <svg class="toggleAside" @click="toggleAside" v-if="toggleAsideButtonVisible">
+        <use xlink:href="#icon-menu"></use>
+      </svg>
+    </div>
+    <router-link to="/" class="logo" title="首页" v-if="toggleAsideButtonVisible">
       <svg class="icon">
         <use xlink:href="#icon-xiyo"></use>
       </svg>
@@ -51,12 +53,12 @@ export default {
   z-index: 10;
   &.underlineVisible {
     background: #fff;
-    box-shadow: 0 0 1px fade-out(black, .6);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   }
   .logo {
     margin-right: auto;
     .icon {
-      transform: scale(1.7);
+      transform: scale(1.4);
       fill: darken(#FF8D78, 10);
     }
   }
