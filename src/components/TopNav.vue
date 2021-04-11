@@ -1,6 +1,6 @@
 <template>
   <div class="topNav" :class="{underlineVisible}">
-    <div title="菜单">
+    <div title="菜单" :class="{asideVisible}">
       <svg class="toggleAside" @click="toggleAside" v-if="toggleAsideButtonVisible">
         <use xlink:href="#icon-menu"></use>
       </svg>
@@ -32,7 +32,7 @@ export default {
     const toggleAside = () => {
       asideVisible.value = !asideVisible.value;
     };
-    return {toggleAside};
+    return {toggleAside, asideVisible};
   }
 };
 </script>
@@ -64,8 +64,14 @@ export default {
     width: 20px;
     height: 20px;
     display: none;
-    fill: #FF8D78;
+    fill: #666;
     cursor: pointer;
+    transition: all .25s;
+  }
+  .asideVisible {
+    .toggleAside {
+      fill: #FF8D78;
+    }
   }
   @media (max-width: 500px) {
     .logo {
