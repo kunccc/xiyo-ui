@@ -5,7 +5,7 @@
 然后引入组件。
 
 ```
-import {Button, Tabs, Switch, Dialog} from "xiyo-ui"
+import {Switch, Button, Dialog, openDialog, Tabs, Tab} from "xiyo-ui"
 ```
 
 接下来就可以使用我提供的组件了。
@@ -16,16 +16,14 @@ import {Button, Tabs, Switch, Dialog} from "xiyo-ui"
 
 ```
 <template>
-    <div>
-        <Button>按钮</Button>
-    </div>
+  <Button>按钮</Button>
 </template>
 
 <script lang="ts">
-import {Button, Tabs, Switch, Dialog} from 'xiyo-ui'
+import {Switch, Button, Dialog, openDialog, Tabs, Tab} from 'xiyo-ui'
 
 export default {
-    components: {Button}
+  components: {Button}
 }
 </script>
 ```

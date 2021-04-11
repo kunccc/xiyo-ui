@@ -10,11 +10,6 @@
         <use xlink:href="#icon-xiyo"></use>
       </svg>
     </router-link>
-    <ul class="menu">
-      <li>
-        <router-link to="/doc">文档</router-link>
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -56,22 +51,16 @@ export default {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   }
   .logo {
-    margin-right: auto;
+    margin-left: 16px;
     .icon {
       transform: scale(1.4);
       fill: darken(#FF8D78, 10);
     }
   }
-  .menu {
-    display: flex;
-    li {
-      margin: 0 1em;
-    }
-  }
   .toggleAside {
     position: absolute;
     top: 16px;
-    left: 16px;
+    left: 28px;
     width: 20px;
     height: 20px;
     display: none;
@@ -79,9 +68,6 @@ export default {
     cursor: pointer;
   }
   @media (max-width: 500px) {
-    .menu {
-      display: none;
-    }
     .logo {
       margin: 0 auto;
     }
