@@ -1,11 +1,11 @@
 <demo>
-基本用法
+控制遮罩是否触发返回
 </demo>
 
 <template>
   <Button @click="open">打开</Button>
-  <Dialog v-model:visible="visible" title="标题">
-    Hello World
+  <Dialog v-model:visible="visible" title="标题" closeOnOverlay>
+    Hello world
   </Dialog>
 </template>
 

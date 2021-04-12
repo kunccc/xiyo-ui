@@ -99,6 +99,16 @@ $color-danger: #ff4d4f;
     padding: 0 6px;
   }
   &.xiyo-theme-button {
+    &.xiyo-level-main {
+      background: $color-xiyo;
+      color: white;
+      &:hover {
+        background: lighten($color-xiyo, 10%);
+        border-color: lighten($color-xiyo, 10%);
+      }
+    }
+  }
+  &.xiyo-theme-button {
     &[disabled] {
       cursor: not-allowed;
       color: grey;

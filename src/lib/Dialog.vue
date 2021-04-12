@@ -4,15 +4,15 @@
       <div class="xiyo-dialog-overlay" @click="onClickOverlay"/>
       <div class="xiyo-dialog-wrapper">
         <header>
-          <slot name="title"/>
+          <span>{{ title }}</span>
           <span @click="close" class="xiyo-dialog-close"/>
         </header>
         <main>
-          <slot name="content"/>
+          <slot/>
         </main>
         <footer>
-          <Button @click="cancel">取消</Button>
-          <Button level="main" @click="ok">确定</Button>
+          <span><Button @click="cancel">取消</Button></span>
+          <span><Button level="main" @click="ok">确定</Button></span>
         </footer>
       </div>
     </Teleport>
@@ -25,13 +25,17 @@ import Button from './Button.vue';
 export default {
   components: {Button},
   props: {
+    title: {
+      type: String,
+      default: ''
+    },
     visible: {
       type: Boolean,
       default: false
     },
     closeOnOverlay: {
       type: Boolean,
-      default: true
+      default: false
     },
     ok: {
       type: Function
@@ -48,7 +52,8 @@ export default {
       if (props.closeOnOverlay) close();
     };
     const ok = () => {
-      if (props.ok?.()) close();
+      props.ok?.();
+      close();
     };
     const cancel = () => {
       props.cancel?.();
@@ -68,21 +73,21 @@ export default {
   left: 0;
   z-index: 10;
   background: fade_out(black, 0.6);
+  transition: all .3s;
 }
 .xiyo-dialog-wrapper {
-  min-width: 15em;
+  min-width: 300px;
   max-width: 90%;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 11;
   background: #fff;
-  border-radius: 6px;
-  border: 1px solid #FF8D78;
-  box-shadow: 0 0 3px fade_out(#FF8D78, 0.6);
+  border-radius: 4px;
+  box-shadow: 0 0 3px fade_out(#FF8D78, 0.5);
   header {
-    padding: 12px 16px;
+    padding: 14px 16px;
     font-size: 20px;
     display: flex;
     justify-content: space-between;
@@ -90,10 +95,15 @@ export default {
   }
   main {
     padding: 12px 16px;
+    font-size: 16px;
+    color: #555;
   }
   footer {
-    padding: 12px 16px;
+    padding: 14px 16px;
     text-align: right;
+    span {
+      margin-left: 10px;
+    }
   }
   .xiyo-dialog-close {
     position: relative;
@@ -101,6 +111,10 @@ export default {
     width: 16px;
     height: 16px;
     cursor: pointer;
+    transition: all .3s;
+    &:hover {
+      transform: rotate(90deg);
+    }
     &::before,
     &::after {
       content: '';

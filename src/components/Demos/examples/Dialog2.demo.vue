@@ -1,5 +1,5 @@
 <demo>
-一句话打开 Dialog
+一个函数打开 Dialog
 </demo>
 
 <template>
@@ -8,16 +8,15 @@
 
 <script lang="ts">
 import Button from '../../../lib/Button.vue';
-import {h} from 'vue';
-import {openDialog} from '../../../lib/openDialog';
+import {openDialog} from '../../../lib';
 
 export default {
   components: {Button},
   setup() {
     const showDialog = () => {
       openDialog({
-        title: h('strong', {}, '标题'),
-        content: 'hello world',
+        title: '标题',
+        content: 'Hello World',
         ok() {console.log('ok');},
         cancel() {console.log('cancel');}
       });
