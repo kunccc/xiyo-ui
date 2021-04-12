@@ -18,6 +18,10 @@ export default {
       type: String,
       default: 'normal'
     },
+    level: {
+      type: String,
+      default: 'normal'
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -28,11 +32,12 @@ export default {
     }
   },
   setup(props) {
-    const {theme, size} = props;
+    const {theme, size, level} = props;
     const classes = computed(() => {
       return {
         [`xiyo-theme-${theme}`]: theme,
         [`xiyo-size-${size}`]: size,
+        [`xiyo-level-${level}`]: level,
       };
     });
     return {classes};

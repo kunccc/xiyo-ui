@@ -11,8 +11,8 @@
           <slot name="content"/>
         </main>
         <footer>
-          <Button level="main" @click="ok">OK</Button>
-          <Button @click="cancel">Cancel</Button>
+          <Button @click="cancel">取消</Button>
+          <Button level="main" @click="ok">确定</Button>
         </footer>
       </div>
     </Teleport>
@@ -79,7 +79,8 @@ export default {
   z-index: 11;
   background: #fff;
   border-radius: 6px;
-  box-shadow: 0 0 3px fade_out(black, 0.6);
+  border: 1px solid #FF8D78;
+  box-shadow: 0 0 3px fade_out(#FF8D78, 0.6);
   header {
     padding: 12px 16px;
     font-size: 20px;
