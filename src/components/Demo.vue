@@ -105,7 +105,7 @@ export default {
       }
       pre {
         margin: 0;
-        padding: 14px;
+        padding: 16px;
         background: #fafafa;
         font-size: 14px;
         font-family: Consolas, 'Courier New', Courier, monospace;

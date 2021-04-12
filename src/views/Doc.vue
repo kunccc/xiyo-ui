@@ -36,6 +36,7 @@ export default {
 @media (max-width: 500px) {
   .content {
     main {
+      height: 100vh;
       padding-left: 28px;
       transform: translateX(0);
       &.asideVisible {
