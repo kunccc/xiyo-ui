@@ -20,7 +20,7 @@ import {Switch, Button, Dialog, openDialog, Tabs, Tab} from "xiyo-ui"
 </template>
 
 <script lang="ts">
-import {Switch, Button, Dialog, openDialog, Tabs, Tab} from 'xiyo-ui'
+import {Button} from "xiyo-ui"
 
 export default {
   components: {Button}
