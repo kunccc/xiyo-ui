@@ -1,6 +1,6 @@
 <template>
   <TopNav toggleAsideButtonVisible underlineVisible/>
-  <div class="mask" :class="{asideVisible}" @click="toggleAside"/>
+  <div class="mask" :class="{asideVisible}" @click="toggleAside" ref="mask"/>
   <div class="content">
     <Aside/>
     <main @click="toggleAside" :class="{asideVisible}">
@@ -12,7 +12,7 @@
 <script lang="ts">
 import TopNav from '../components/TopNav.vue';
 import Aside from '../components/Aside.vue';
-import {inject, Ref} from 'vue';
+import {inject, onMounted, Ref, ref} from 'vue';
 
 export default {
   components: {TopNav, Aside},
@@ -21,7 +21,13 @@ export default {
     const toggleAside = () => {
       asideVisible.value = false;
     };
-    return {toggleAside, asideVisible};
+    const mask = ref<HTMLDivElement>(null);
+    onMounted(() => {
+      mask.value.addEventListener('wheel', e => {
+        if (asideVisible.value) e.preventDefault();
+      });
+    });
+    return {toggleAside, asideVisible, mask};
   }
 };
 </script>
@@ -36,12 +42,10 @@ export default {
 @media (max-width: 500px) {
   .content {
     main {
-      height: 100vh;
       padding-left: 28px;
       transform: translateX(0);
       &.asideVisible {
         transform: translateX(200px);
-        overflow: hidden;
       }
     }
   }
