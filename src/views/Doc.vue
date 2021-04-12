@@ -1,11 +1,13 @@
 <template>
-  <TopNav toggleAsideButtonVisible underlineVisible/>
-  <div class="mask" :class="{asideVisible}" @click="toggleAside" ref="mask"/>
-  <div class="content">
-    <Aside/>
-    <main @click="toggleAside" :class="{asideVisible}">
-      <router-view/>
-    </main>
+  <div ref="docWrapper">
+    <TopNav toggleAsideButtonVisible underlineVisible/>
+    <div class="mask" :class="{asideVisible}" @click="toggleAside"/>
+    <div class="content">
+      <Aside/>
+      <main @click="toggleAside" :class="{asideVisible}">
+        <router-view/>
+      </main>
+    </div>
   </div>
 </template>
 
@@ -21,13 +23,16 @@ export default {
     const toggleAside = () => {
       asideVisible.value = false;
     };
-    const mask = ref<HTMLDivElement>(null);
+    const docWrapper = ref<HTMLDivElement>(null);
     onMounted(() => {
-      mask.value.addEventListener('wheel', e => {
+      docWrapper.value.addEventListener('wheel', e => {
+        if (asideVisible.value) e.preventDefault();
+      });
+      docWrapper.value.addEventListener('touchmove', e => {
         if (asideVisible.value) e.preventDefault();
       });
     });
-    return {toggleAside, asideVisible, mask};
+    return {toggleAside, asideVisible, docWrapper};
   }
 };
 </script>
