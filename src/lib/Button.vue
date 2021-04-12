@@ -18,10 +18,6 @@ export default {
       type: String,
       default: 'normal'
     },
-    level: {
-      type: String,
-      default: 'normal'
-    },
     disabled: {
       type: Boolean,
       default: false
@@ -32,12 +28,11 @@ export default {
     }
   },
   setup(props) {
-    const {theme, size, level} = props;
+    const {theme, size} = props;
     const classes = computed(() => {
       return {
         [`xiyo-theme-${theme}`]: theme,
         [`xiyo-size-${size}`]: size,
-        [`xiyo-level-${level}`]: level,
       };
     });
     return {classes};
@@ -60,11 +55,13 @@ $color-danger: #ff4d4f;
   border: 1px solid #ddd;
   border-radius: 6px;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
-  transition: background .3s;
-  &:hover,
-  &:focus {
+  transition: all .25s;
+  &:hover {
     color: $color-xiyo;
-    border-color: $color-xiyo;
+    border-color: lighten($color-xiyo, 3);
+    outline: none;
+  }
+  &:focus {
     outline: none;
   }
   &::-moz-focus-inner { /*firefox 对 focus 边框处理*/
@@ -83,7 +80,7 @@ $color-danger: #ff4d4f;
     box-shadow: none;
     color: inherit;
     &:hover, &:focus {
-      background: lighten(#fff, 5%);;
+      color: $color-xiyo;
     }
   }
   &.xiyo-size-big {
@@ -95,53 +92,6 @@ $color-danger: #ff4d4f;
     font-size: 12px;
     height: 22px;
     padding: 0 6px;
-  }
-  &.xiyo-theme-button {
-    &.xiyo-level-main {
-      background: $color-xiyo;
-      color: white;
-      border-color: $color-xiyo;
-      &:hover,
-      &:focus {
-        background: lighten($color-xiyo, 10%);
-        border-color: lighten($color-xiyo, 10%);
-      }
-    }
-    &.xiyo-level-danger {
-      background: $color-danger;
-      border-color: $color-danger;
-      color: #fff;
-      &:hover,
-      &:focus {
-        background: lighten($color-danger, 10%);
-        border-color: lighten($color-danger, 10%);
-      }
-    }
-  }
-  &.xiyo-theme-link {
-    &.xiyo-level-danger {
-      color: $color-danger;
-      &:hover,
-      &:focus {
-        color: lighten($color-danger, 10%);
-      }
-    }
-  }
-  &.xiyo-theme-text {
-    &.xiyo-level-main {
-      color: $color-xiyo;
-      &:hover,
-      &:focus {
-        color: lighten($color-xiyo, 10%);
-      }
-    }
-    &.xiyo-level-danger {
-      color: $color-danger;
-      &:hover,
-      &:focus {
-        color: lighten($color-danger, 10%);
-      }
-    }
   }
   &.xiyo-theme-button {
     &[disabled] {

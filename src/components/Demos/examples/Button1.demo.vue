@@ -3,9 +3,7 @@
 </demo>
 
 <template>
-  <Button theme="button">按钮</Button>
-  <Button theme="text">文本</Button>
-  <Button theme="link">链接</Button>
+  <Button>按钮</Button>
 </template>
 
 <script lang="ts">

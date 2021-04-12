@@ -98,8 +98,8 @@ export default {
     }
     &-code {
       transition: all .4s;
-      overflow: hidden;
       max-height: 0;
+      overflow: auto;
       &.codeVisible {
         max-height: 600px;
       }

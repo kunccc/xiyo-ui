@@ -1,11 +1,9 @@
 <demo>
-支持 disabled
+支持 loading
 </demo>
 
 <template>
-  <Button disabled>禁用按钮</Button>
-  <Button theme="text" disabled>禁用文本按钮</Button>
-  <Button theme="link" disabled>禁用链接按钮</Button>
+  <Button loading>加载中</Button>
 </template>
 
 <script lang="ts">

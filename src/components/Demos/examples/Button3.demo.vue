@@ -1,19 +1,19 @@
 <demo>
-不同主题
+不同尺寸
 </demo>
 
 <template>
-  <Button level="main">主要按钮</Button>
-  <Button level="normal">普通按钮</Button>
-  <Button level="danger">危险按钮</Button>
+  <span><Button size="big">大大</Button></span>
+  <span><Button size="normal">中中</Button></span>
+  <span><Button size="small">小小</Button></span>
   <br/>
-  <Button theme="text" level="main">主要文本按钮</Button>
-  <Button theme="text" level="normal">普通文本按钮</Button>
-  <Button theme="text" level="danger">危险文本按钮</Button>
+  <span><Button theme="text" size="big">大大</Button></span>
+  <span><Button theme="text" size="normal">中中</Button></span>
+  <span><Button theme="text" size="small">小小</Button></span>
   <br/>
-  <Button theme="link" level="main">主要链接按钮</Button>
-  <Button theme="link" level="normal">普通链接按钮</Button>
-  <Button theme="link" level="danger">危险链接按钮</Button>
+  <span><Button theme="link" size="big">大大</Button></span>
+  <span><Button theme="link" size="normal">中中</Button></span>
+  <span><Button theme="link" size="small">小小</Button></span>
 </template>
 
 <script lang="ts">
@@ -23,3 +23,9 @@ export default {
   components: {Button}
 };
 </script>
+
+<style lang="scss" scoped>
+span {
+  margin-right: 10px;
+}
+</style>
