@@ -102,6 +102,7 @@ export default {
       border-right: 1px solid transparent;
       padding: 8px 16px;
       margin: 0;
+      transition: all .3s;
       &.selected {
         border-left: 1px solid #d9d9d9;
         border-right: 1px solid #d9d9d9;

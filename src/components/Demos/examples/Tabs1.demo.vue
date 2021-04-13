@@ -4,9 +4,9 @@
 
 <template>
   <Tabs v-model:selected="selectedTitle">
-    <Tab title="客户">内容1</Tab>
-    <Tab title="员工">内容2</Tab>
-    <Tab title="任务补偿">内容3</Tab>
+    <Tab title="客户">客户标签内容</Tab>
+    <Tab title="员工">员工标签内容</Tab>
+    <Tab title="任务补偿">任务补偿标签内容</Tab>
   </Tabs>
 </template>
 

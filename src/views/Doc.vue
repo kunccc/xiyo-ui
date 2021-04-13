@@ -1,5 +1,5 @@
 <template>
-  <div ref="docWrapper">
+  <div ref="docWrapper" class="docWrapper">
     <TopNav toggleAsideButtonVisible underlineVisible/>
     <div class="mask" :class="{asideVisible}" @click="toggleAside"/>
     <div class="content">
@@ -66,6 +66,19 @@ export default {
     &.asideVisible {
       opacity: 1;
       z-index: 8;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .docWrapper {
+    height: 100%;
+    position: relative;
+    margin: 0 200px;
+    .topNav {
+      position: absolute;
+    }
+    .aside {
+      position: absolute;
     }
   }
 }
