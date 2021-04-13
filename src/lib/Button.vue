@@ -102,9 +102,9 @@ $color-danger: #ff4d4f;
     &.xiyo-level-main {
       background: $color-xiyo;
       color: white;
+      border: 1px solid transparent;
       &:hover {
         background: lighten($color-xiyo, 10%);
-        border-color: lighten($color-xiyo, 10%);
       }
     }
   }
@@ -127,7 +127,7 @@ $color-danger: #ff4d4f;
     width: 14px;
     height: 14px;
     display: inline-block;
-    margin-right: 4px;
+    margin-right: 6px;
     border-radius: 8px;
     border-color: $color-xiyo $color-xiyo $color-xiyo transparent;
     border-style: solid;

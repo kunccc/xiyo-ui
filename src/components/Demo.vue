@@ -80,7 +80,7 @@ export default {
         transition: all .3s;
         transform: scale(1.3) translateX(34px);
         &.codeVisible {
-          transform: scale(1.3) translateX(34px) rotate(180deg);
+          transform: scale(1.3) translateX(34px) rotate(-180deg);
         }
       }
       &:hover {
@@ -92,7 +92,7 @@ export default {
         .icon {
           transform: scale(1.3) translateX(6px);
           &.codeVisible {
-            transform: scale(1.3) translateX(6px) rotate(180deg);
+            transform: scale(1.3) translateX(6px) rotate(-180deg);
           }
         }
       }
@@ -102,7 +102,7 @@ export default {
       max-height: 0;
       overflow: auto;
       &.codeVisible {
-        max-height: 600px;
+        max-height: 490px;
       }
       pre {
         margin: 0;

@@ -50,7 +50,7 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  height: 310px;
+  height: 300px;
   background: linear-gradient(145deg, rgba(255, 224, 218, 1) 0%, rgba(255, 207, 198, 1) 100%);
   clip-path: ellipse(80% 60% at 50% 40%);
   .banner {
@@ -58,13 +58,13 @@ export default {
     padding-top: 70px;
     color: #FF8D78;
     .icon {
-      width: 82px;
-      height: 82px;
+      width: 78px;
+      height: 78px;
       margin-right: 18px;
       transform: translateY(-16px);
     }
     img {
-      height: 56px;
+      height: 52px;
       margin-bottom: 20px
     }
     .p2 {
