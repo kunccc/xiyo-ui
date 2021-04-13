@@ -50,6 +50,7 @@ export default {
   &-content {
     margin-top: 16px;
     border: 1px solid #ddd;
+    box-shadow: 0 0 3px fade-out(black, .9);
     &-component {
       border-bottom: 1px solid #ddd;
       padding: 20px 14px;
