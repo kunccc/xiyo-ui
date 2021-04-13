@@ -9,6 +9,7 @@
       <svg class="icon">
         <use xlink:href="#icon-xiyo"></use>
       </svg>
+      <img src="../assets/xiyo-logo.png">
     </router-link>
   </div>
 </template>
@@ -40,7 +41,7 @@ export default {
 <style lang="scss" scoped>
 .topNav {
   display: flex;
-  padding: 16px;
+  padding: 12px 16px 16px;
   position: fixed;
   top: 0;
   left: 0;
@@ -56,10 +57,14 @@ export default {
       transform: scale(1.4);
       fill: darken(#FF8D78, 10);
     }
+    img {
+      height: 16px;
+      margin: 10px 10px -4px;
+    }
   }
   .toggleAside {
     position: absolute;
-    top: 16px;
+    top: 18px;
     left: 28px;
     width: 20px;
     height: 20px;
@@ -75,9 +80,13 @@ export default {
   }
   @media (max-width: 500px) {
     .logo {
-      margin: 0 auto;
+      margin: 4px auto 0;
+    }
+    img {
+      display: none;
     }
     .toggleAside {
+      top: 14px;
       display: inline-block;
     }
   }

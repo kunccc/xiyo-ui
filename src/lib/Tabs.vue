@@ -70,6 +70,7 @@ export default {
       padding: 8px 0;
       margin: 0 16px;
       cursor: pointer;
+      transition: all .3s;
       &:first-child {
         margin-left: 0;
       }

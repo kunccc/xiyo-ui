@@ -2,8 +2,11 @@
   <div class="wrapper">
     <TopNav/>
     <div class="banner">
-      <p class="p1">xiyo UI</p>
-      <p class="p2">基于 Vue3 的 UI 框架</p>
+      <svg class="icon">
+        <use xlink:href="#icon-xiyo"/>
+      </svg>
+      <img src="../assets/xiyo-logo.png">
+      <p class="p2">一个基于 Vue3 的 UI 组件库</p>
       <p class="actions">
         <a href="https://github.com/kunccc/xiyo-ui">Github</a>
         <router-link to="/doc">开始</router-link>
@@ -47,22 +50,28 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  height: 300px;
+  height: 310px;
   background: linear-gradient(145deg, rgba(255, 224, 218, 1) 0%, rgba(255, 207, 198, 1) 100%);
   clip-path: ellipse(80% 60% at 50% 40%);
   .banner {
     text-align: center;
-    padding-top: 66px;
+    padding-top: 70px;
     color: #FF8D78;
-    .p1 {
-      font-size: 42px;
+    .icon {
+      width: 82px;
+      height: 82px;
+      margin-right: 18px;
+      transform: translateY(-16px);
+    }
+    img {
+      height: 56px;
       margin-bottom: 20px
     }
     .p2 {
       font-size: 22px;
     }
     .actions {
-      padding: 50px 0 50px;
+      padding: 50px 0;
       a {
         font-size: 14px;
         background: #FF8D78;
