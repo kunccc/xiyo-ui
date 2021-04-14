@@ -101,13 +101,13 @@ export default {
       transition: all .4s;
       max-height: 0;
       overflow: auto;
+      background: #fafafa;
       &.codeVisible {
         max-height: 490px;
       }
       pre {
         margin: 0;
         padding: 16px;
-        background: #fafafa;
         font-size: 14px;
         font-family: Consolas, 'Courier New', Courier, monospace;
       }

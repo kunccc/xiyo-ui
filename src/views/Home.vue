@@ -1,50 +1,61 @@
 <template>
-  <div class="wrapper">
-    <TopNav/>
-    <div class="banner">
-      <svg class="icon">
-        <use xlink:href="#icon-xiyo"/>
-      </svg>
-      <img src="../assets/xiyo-logo.png">
-      <p class="p2">一个基于 Vue3 的 UI 组件库</p>
-      <p class="actions">
-        <a href="https://github.com/kunccc/xiyo-ui">Github</a>
-        <router-link to="/doc">开始</router-link>
-      </p>
+  <div ref="home">
+    <div class="wrapper">
+      <TopNav/>
+      <div class="banner">
+        <svg class="icon">
+          <use xlink:href="#icon-xiyo"/>
+        </svg>
+        <img src="../assets/xiyo-logo.png">
+        <p class="p2">一个基于 Vue3 的 UI 组件库</p>
+        <p class="actions">
+          <a href="https://github.com/kunccc/xiyo-ui">Github</a>
+          <router-link to="/doc">开始</router-link>
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="feature">
-    <ul>
-      <li>
-        <svg class="icon">
-          <use xlink:href="#icon-vue"></use>
-        </svg>
-        <h3>基于 Vue3</h3>
-        <p>使用了 Vue3 Composition API</p>
-      </li>
-      <li>
-        <svg class="icon">
-          <use xlink:href="#icon-ts"></use>
-        </svg>
-        <h3>基于 TypeScript</h3>
-        <p>源代码采用 TypeScript 书写</p>
-      </li>
-      <li>
-        <svg class="icon light">
-          <use xlink:href="#icon-light"></use>
-        </svg>
-        <h3>代码易读</h3>
-        <p>所有组件的代码都十分简洁</p>
-      </li>
-    </ul>
+    <div class="feature">
+      <ul>
+        <li>
+          <svg class="icon">
+            <use xlink:href="#icon-vue"></use>
+          </svg>
+          <h3>基于 Vue3</h3>
+          <p>使用了 Vue3 Composition API</p>
+        </li>
+        <li>
+          <svg class="icon">
+            <use xlink:href="#icon-ts"></use>
+          </svg>
+          <h3>基于 TypeScript</h3>
+          <p>源代码采用 TypeScript 书写</p>
+        </li>
+        <li>
+          <svg class="icon light">
+            <use xlink:href="#icon-light"></use>
+          </svg>
+          <h3>代码易读</h3>
+          <p>所有组件的代码都十分简洁</p>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import TopNav from '../components/TopNav.vue';
+import {onMounted, ref} from 'vue';
 
 export default {
   components: {TopNav},
+  setup() {
+    const home = ref<HTMLDivElement>(null);
+    onMounted(() => {
+      home.value.addEventListener('touchmove', e => {
+        e.preventDefault();
+      });
+    });
+  }
 };
 </script>
 
