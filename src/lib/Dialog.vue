@@ -1,26 +1,29 @@
 <template>
-  <transition name="overlay">
-    <div v-if="visible" class="xiyo-dialog-overlay" @click="onClickOverlay"/>
-  </transition>
-  <transition name="wrapper">
-    <div v-if="visible" class="xiyo-dialog-wrapper">
-      <header>
-        <span>{{ title }}</span>
-        <span @click="close" class="xiyo-dialog-close"/>
-      </header>
-      <main>
-        <slot/>
-      </main>
-      <footer>
-        <span><Button @click="cancel">取消</Button></span>
-        <span><Button level="main" @click="ok">确定</Button></span>
-      </footer>
-    </div>
-  </transition>
+  <div ref="dialog">
+    <transition name="overlay">
+      <div v-if="visible" class="xiyo-dialog-overlay" @click="onClickOverlay"/>
+    </transition>
+    <transition name="wrapper">
+      <div v-if="visible" class="xiyo-dialog-wrapper">
+        <header>
+          <span>{{ title }}</span>
+          <span @click="close" class="xiyo-dialog-close"/>
+        </header>
+        <main>
+          <slot/>
+        </main>
+        <footer>
+          <span><Button @click="cancel">取消</Button></span>
+          <span><Button level="main" @click="ok">确定</Button></span>
+        </footer>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script lang="ts">
 import Button from './Button.vue';
+import {onMounted, ref} from 'vue';
 
 export default {
   components: {Button},
@@ -59,7 +62,16 @@ export default {
       if (props.cancel) props.cancl();
       close();
     };
-    return {close, onClickOverlay, ok, cancel};
+    const dialog = ref<HTMLDivElement>(null);
+    onMounted(() => {
+      dialog.value.addEventListener('touchmove', e => {
+        if (props.visible) e.preventDefault();
+      });
+      dialog.value.addEventListener('wheel', e => {
+        if (props.visible) e.preventDefault();
+      });
+    });
+    return {close, onClickOverlay, ok, cancel, dialog};
   }
 };
 </script>

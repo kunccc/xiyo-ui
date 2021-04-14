@@ -1,5 +1,5 @@
 <template>
-  <div ref="home">
+  <div class="home">
     <div class="wrapper">
       <TopNav/>
       <div class="banner">
@@ -44,22 +44,16 @@
 
 <script lang="ts">
 import TopNav from '../components/TopNav.vue';
-import {onMounted, ref} from 'vue';
 
 export default {
   components: {TopNav},
-  setup() {
-    const home = ref<HTMLDivElement>(null);
-    onMounted(() => {
-      home.value.addEventListener('touchmove', e => {
-        e.preventDefault();
-      });
-    });
-  }
 };
 </script>
 
 <style lang="scss" scoped>
+.home {
+  overflow: hidden;
+}
 .wrapper {
   height: 300px;
   background: linear-gradient(145deg, rgba(255, 224, 218, 1) 0%, rgba(255, 207, 198, 1) 100%);
