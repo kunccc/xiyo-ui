@@ -1,22 +1,22 @@
 <template>
-  <template v-if="visible">
-    <Teleport to="body">
-      <div class="xiyo-dialog-overlay" @click="onClickOverlay"/>
-      <div class="xiyo-dialog-wrapper">
-        <header>
-          <span>{{ title }}</span>
-          <span @click="close" class="xiyo-dialog-close"/>
-        </header>
-        <main>
-          <slot/>
-        </main>
-        <footer>
-          <span><Button @click="cancel">取消</Button></span>
-          <span><Button level="main" @click="ok">确定</Button></span>
-        </footer>
-      </div>
-    </Teleport>
-  </template>
+  <transition name="overlay">
+    <div v-if="visible" class="xiyo-dialog-overlay" @click="onClickOverlay"/>
+  </transition>
+  <transition name="wrapper">
+    <div v-if="visible" class="xiyo-dialog-wrapper">
+      <header>
+        <span>{{ title }}</span>
+        <span @click="close" class="xiyo-dialog-close"/>
+      </header>
+      <main>
+        <slot/>
+      </main>
+      <footer>
+        <span><Button @click="cancel">取消</Button></span>
+        <span><Button level="main" @click="ok">确定</Button></span>
+      </footer>
+    </div>
+  </transition>
 </template>
 
 <script lang="ts">
@@ -132,5 +132,16 @@ export default {
       transform: translate(-50%, -50%) rotate(45deg);
     }
   }
+}
+.overlay-enter-active, .overlay-leave-active,
+.wrapper-enter-active, .wrapper-leave-active {
+  transition: all .25s;
+}
+.overlay-enter-from, .overlay-leave-to {
+  opacity: 0;
+}
+.wrapper-enter-from, .wrapper-leave-to {
+  transform: translate(-50%, -50%) translateY(-16px);
+  opacity: 0;
 }
 </style>

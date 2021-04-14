@@ -114,7 +114,7 @@ export default {
         width: 62px;
         height: 62px;
         &.light {
-          transform: translateX(-3px);
+          transform: translateX(-2px);
         }
       }
       > h3 {

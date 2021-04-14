@@ -48,7 +48,6 @@ export default {
   .content {
     main {
       padding-left: 28px;
-      transform: translateX(0);
       &.asideVisible {
         transform: translateX(200px);
       }
