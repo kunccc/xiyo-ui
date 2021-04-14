@@ -102,6 +102,9 @@ export default {
     @media (max-width: 500px) {
       .demo-content-action {
         background: #fff;
+        .xiyo-theme-link {
+          background: #fff;
+        }
         &.codeVisible {
           background: #fafafa;
           .xiyo-theme-link {
