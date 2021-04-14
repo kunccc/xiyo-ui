@@ -101,6 +101,7 @@ export default {
     }
     @media (max-width: 500px) {
       .demo-content-action {
+        background: #fff;
         &-button {
           transform: translateX(0);
           opacity: 1;
