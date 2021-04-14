@@ -5,7 +5,7 @@
 然后引入组件。
 
 ```
-import {Switch, Button, Dialog, openDialog, Tabs, Tab} from "xiyo-ui"
+import {Switch, Button, Dialog, Tabs, Tab} from "xiyo-ui"
 ```
 
 接下来就可以使用我提供的组件了。
