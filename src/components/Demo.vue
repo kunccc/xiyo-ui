@@ -83,16 +83,32 @@ export default {
           transform: scale(1.3) translateX(34px) rotate(-180deg);
         }
       }
-      &:hover {
-        cursor: pointer;
-        .demo-content-action-button {
-          transform: translateX(6px);
+      @media (min-width: 501px) {
+        &:hover {
+          cursor: pointer;
+          .demo-content-action-button {
+            transform: translateX(6px);
+            opacity: 1;
+          }
+          .icon {
+            transform: scale(1.3) translateX(6px);
+            &.codeVisible {
+              transform: scale(1.3) translateX(6px) rotate(-180deg);
+            }
+          }
+        }
+      }
+    }
+    @media (max-width: 500px) {
+      .demo-content-action {
+        &-button {
+          transform: translateX(0);
           opacity: 1;
         }
         .icon {
-          transform: scale(1.3) translateX(6px);
+          transform: scale(1.3) translateX(0);
           &.codeVisible {
-            transform: scale(1.3) translateX(6px) rotate(-180deg);
+            transform: scale(1.3) translateX(0) rotate(-180deg);
           }
         }
       }
