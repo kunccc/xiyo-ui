@@ -59,7 +59,7 @@ export default {
       close();
     };
     const cancel = () => {
-      if (props.cancel) props.cancl();
+      if (props.cancel) props.cancel();
       close();
     };
     const dialog = ref<HTMLDivElement>(null);
