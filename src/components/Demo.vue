@@ -5,7 +5,7 @@
       <div class="demo-content-component">
         <component :is="component"/>
       </div>
-      <div class="demo-content-action" :class="{codeVisible}" @click="codeVisible = !codeVisible">
+      <div class="demo-content-action" @click="codeVisible = !codeVisible">
         <svg class="icon" :class="{codeVisible}">
           <use xlink:href="#icon-arrow"></use>
         </svg>
@@ -102,14 +102,14 @@ export default {
     @media (max-width: 500px) {
       .demo-content-action {
         background: #fff;
+        &:hover {
+          background: #fff;
+          .xiyo-theme-link {
+            background: #fff;
+          }
+        }
         .xiyo-theme-link {
           background: #fff;
-        }
-        &.codeVisible {
-          background: #fafafa;
-          .xiyo-theme-link {
-            background: #fafafa;
-          }
         }
         &-button {
           transform: translateX(0);
