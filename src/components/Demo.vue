@@ -102,6 +102,12 @@ export default {
     @media (max-width: 500px) {
       .demo-content-action {
         background: #fff;
+        &.codeVisible {
+          background: #fafafa;
+          .xiyo-theme-link {
+            background: #fafafa;
+          }
+        }
         &-button {
           transform: translateX(0);
           opacity: 1;
