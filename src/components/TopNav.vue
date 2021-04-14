@@ -1,11 +1,11 @@
 <template>
-  <div class="topNav" :class="{underlineVisible}">
+  <div class="topNav" v-if="topNavVisible">
     <div title="菜单" :class="{asideVisible}">
-      <svg class="toggleAside" @click="toggleAside" v-if="toggleAsideButtonVisible">
+      <svg class="toggleAside" @click="toggleAside">
         <use xlink:href="#icon-menu"></use>
       </svg>
     </div>
-    <router-link to="/" class="logo" title="首页" v-if="toggleAsideButtonVisible">
+    <router-link to="/" class="logo" title="首页">
       <svg class="icon">
         <use xlink:href="#icon-xiyo"></use>
       </svg>
@@ -19,11 +19,7 @@ import {inject, Ref} from 'vue';
 
 export default {
   props: {
-    toggleAsideButtonVisible: {
-      type: Boolean,
-      default: false
-    },
-    underlineVisible: {
+    topNavVisible: {
       type: Boolean,
       default: false
     }
@@ -45,12 +41,10 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 10;
-  &.underlineVisible {
-    background: #fff;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  }
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   .logo {
     margin-left: 16px;
     .icon {

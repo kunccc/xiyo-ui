@@ -1,7 +1,9 @@
 <template>
   <div ref="docWrapper" class="docWrapper">
-    <TopNav toggleAsideButtonVisible underlineVisible/>
-    <div class="mask" :class="{asideVisible}" @click="toggleAside"/>
+    <TopNav topNavVisible/>
+    <transition name="chMask">
+      <div class="mask" v-if="asideVisible" @click="toggleAside"/>
+    </transition>
     <div class="content">
       <Aside/>
       <main @click="toggleAside" :class="{asideVisible}">
@@ -60,12 +62,13 @@ export default {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.28);
+    z-index: 8;
+  }
+  .chMask-enter-active, .chMask-leave-active {
+    transition: opacity .3s;
+  }
+  .chMask-enter-from, .chMask-leave-to {
     opacity: 0;
-    z-index: -1;
-    &.asideVisible {
-      opacity: 1;
-      z-index: 8;
-    }
   }
 }
 @media (min-width: 1200px) {
