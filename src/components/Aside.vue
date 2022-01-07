@@ -44,9 +44,10 @@ export default {
 <style lang="scss" scoped>
 .aside {
   background: #fff;
-  width: 200px;
+  min-width: 223px;
+  min-height: 100vh;
   height: 100%;
-  padding: 68px 16px 16px 28px;
+  padding: 72px 28px 28px;
   position: fixed;
   top: 0;
   left: 0;
@@ -60,6 +61,7 @@ export default {
   li {
     padding: 6px 0;
     color: #888;
+    transition: all 250ms ease;
     &:hover {
       color: #FF8D78;
     }

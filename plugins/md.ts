@@ -11,7 +11,7 @@ const mdToJs = str => {
 export function md() {
   return {
     configureServer: [ // 用于开发
-      async ({app}) => {
+      async ({ app }) => {
         app.use(async (ctx, next) => { // koa
           if (ctx.path.endsWith('.md')) {
             ctx.type = 'js';
@@ -23,9 +23,9 @@ export function md() {
         });
       },
     ],
-    transforms: [{  // 用于 rollup // 插件
+    transforms: [{  // 用于 rollup
       test: context => context.path.endsWith('.md'),
-      transform: ({code}) => mdToJs(code)
+      transform: ({ code }) => mdToJs(code)
     }]
   };
 }

@@ -42,7 +42,7 @@ export default {
 <style lang="scss" scoped>
 .content {
   main {
-    padding: 86px 30px 36px 230px;
+    padding: 92px 40px 80px 262px;
     transition: all .3s;
   }
 }
@@ -71,11 +71,11 @@ export default {
     opacity: 0;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 500px) {
   .docWrapper {
     height: 100%;
     position: relative;
-    margin: 0 200px;
+    margin: 0 18vw;
     .topNav {
       position: absolute;
     }

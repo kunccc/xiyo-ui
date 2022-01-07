@@ -37,23 +37,25 @@ export default {
 <style lang="scss" scoped>
 .topNav {
   display: flex;
-  padding: 12px 16px 16px;
+  padding: 16px 16px 12px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
+  height: 57px;
   z-index: 10;
   background: #fff;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #ddd;
   .logo {
-    margin-left: 16px;
     .icon {
-      transform: scale(1.4);
-      fill: darken(#FF8D78, 10);
+      width: 24px;
+      height: 24px;
+      margin: 0 10px;
     }
     img {
+      width: 48px;
       height: 16px;
-      margin: 10px 10px -4px;
+      transform: translateY(1px);
     }
   }
   .toggleAside {
@@ -83,6 +85,11 @@ export default {
       top: 14px;
       display: inline-block;
     }
+  }
+}
+@media (min-width: 500px) {
+  .topNav {
+    width: 64vw;
   }
 }
 </style>

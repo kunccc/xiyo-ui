@@ -53,7 +53,7 @@ export default {
     box-shadow: 0 0 3px fade-out(black, .9);
     &-component {
       border-bottom: 1px solid #ddd;
-      padding: 20px 14px;
+      padding: 24px 20px;
     }
     &-action {
       height: 30px;

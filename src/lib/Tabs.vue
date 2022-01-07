@@ -31,7 +31,6 @@ export default {
     const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
-    onMounted(() => {
       watchEffect(() => {
         const {width} = selectedItem.value.getBoundingClientRect();
         indicator.value.style.width = width + 'px';
@@ -40,7 +39,6 @@ export default {
         const left = left2 - left1;
         indicator.value.style.left = left + 'px';
       }, {flush: 'post'});
-    });
     const subtags = context.slots.default();
     subtags.forEach(tag => {
       if (tag.type !== Tab) throw new Error('The subtag of Tabs must be Tab');
