@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue';
-import {ref, onMounted, watchEffect, computed} from 'vue';
+import {ref, watchEffect, computed} from 'vue';
 
 export default {
   props: {
@@ -31,14 +31,14 @@ export default {
     const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
-      watchEffect(() => {
-        const {width} = selectedItem.value.getBoundingClientRect();
-        indicator.value.style.width = width + 'px';
-        const {left: left1} = container.value.getBoundingClientRect();
-        const {left: left2} = selectedItem.value.getBoundingClientRect();
-        const left = left2 - left1;
-        indicator.value.style.left = left + 'px';
-      }, {flush: 'post'});
+    watchEffect(() => {
+      const {width} = selectedItem.value.getBoundingClientRect();
+      indicator.value.style.width = width + 'px';
+      const {left: left1} = container.value.getBoundingClientRect();
+      const {left: left2} = selectedItem.value.getBoundingClientRect();
+      const left = left2 - left1;
+      indicator.value.style.left = left + 'px';
+    }, {flush: 'post'});
     const subtags = context.slots.default();
     subtags.forEach(tag => {
       if (tag.type !== Tab) throw new Error('The subtag of Tabs must be Tab');
@@ -65,7 +65,7 @@ export default {
     border-bottom: 1px solid #d9d9d9;
     position: relative;
     &-item {
-      padding: 8px 0;
+      padding-bottom: 8px;
       margin: 0 16px;
       cursor: pointer;
       transition: all .3s;
