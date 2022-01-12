@@ -52,7 +52,7 @@ export default {
   top: 0;
   left: 0;
   z-index: 9;
-  box-shadow: 1px 0 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 1px 0 1px rgba(0, 0, 0, .1);
   transition: all .3s;
   p {
     font-size: 22px;
@@ -76,6 +76,11 @@ export default {
     &.asideVisible {
       transform: translateX(0);
     }
+  }
+}
+@media (min-width: 500px) {
+  .aside {
+    left: 18vw;
   }
 }
 </style>

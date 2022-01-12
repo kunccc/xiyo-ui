@@ -76,12 +76,6 @@ export default {
     height: 100%;
     position: relative;
     margin: 0 18vw;
-    .topNav {
-      position: absolute;
-    }
-    .aside {
-      position: absolute;
-    }
   }
 }
 </style>

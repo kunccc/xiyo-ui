@@ -13,8 +13,8 @@
           <slot/>
         </main>
         <footer>
-          <span><Button @click="cancel">取消</Button></span>
-          <span><Button level="main" @click="ok">确定</Button></span>
+          <span><Button @click="onCancel">取消</Button></span>
+          <span><Button level="main" @click="onConfirm">确定</Button></span>
         </footer>
       </div>
     </transition>
@@ -40,10 +40,10 @@ export default {
       type: Boolean,
       default: false
     },
-    ok: {
+    onConfirm: {
       type: Function
     },
-    cancel: {
+    onCancel: {
       type: Function
     }
   },
@@ -54,12 +54,12 @@ export default {
     const onClickOverlay = () => {
       if (props.closeOnOverlay) close();
     };
-    const ok = () => {
-      if (props.ok) props.ok();
+    const onConfirm = () => {
+      if (props.onConfirm) props.onConfirm();
       close();
     };
-    const cancel = () => {
-      if (props.cancel) props.cancel();
+    const onCancel = () => {
+      if (props.onCancel) props.onCancel();
       close();
     };
     const dialog = ref<HTMLDivElement>(null);
@@ -71,7 +71,7 @@ export default {
         if (props.visible) e.preventDefault();
       });
     });
-    return {close, onClickOverlay, ok, cancel, dialog};
+    return {close, onClickOverlay, onConfirm, onCancel, dialog};
   }
 };
 </script>

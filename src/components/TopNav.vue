@@ -90,6 +90,7 @@ export default {
 @media (min-width: 500px) {
   .topNav {
     width: 64vw;
+    left: 18vw;
   }
 }
 </style>

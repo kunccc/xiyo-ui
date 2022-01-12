@@ -31,5 +31,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+table {
+  font-size: 14px;
+  width: 100%;
+  border-collapse: collapse;
+  tr {
+    border-bottom: 1px solid #ddd;
+    th {
+      color: #999;
+      font-weight: normal;
+      text-align: left;
+      padding: 16px 10px;
+    }
+    td {
+      color: #666;
+      padding: 16px 10px;
+    }
+  }
+}
 </style>

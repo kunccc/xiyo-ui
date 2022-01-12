@@ -51,6 +51,9 @@ export default {
     margin-top: 16px;
     border: 1px solid #ddd;
     box-shadow: 0 0 3px fade-out(black, .9);
+    &:hover {
+      box-shadow: 0 0 10px rgba(#ff8f78, 0.2);
+    }
     &-component {
       border-bottom: 1px solid #ddd;
       padding: 24px 20px;
