@@ -4,7 +4,7 @@
       <li v-for="(t, index) in titles" :key="index">
         <div class="xiyo-collapse-header" @click="select(t)">
           {{ t }}
-          <Icon name="arrow2" :class="{active: [...active].indexOf(t) >= 0}"/>
+          <Icon name="arrow2" :class="`${active.indexOf(t) >= 0 ? 'active' : ''} ${showArrow ? '' : 'inVisible'}`"/>
         </div>
         <div class="xiyo-collapse-content" :ref="setRef">
           <component :is="subTags[index]" :key="subTags[index].props.title"/>
@@ -22,7 +22,11 @@ import {onMounted, ref} from 'vue';
 export default {
   props: {
     active: Array,
-    accordion: Boolean
+    accordion: Boolean,
+    showArrow: {
+      type: Boolean,
+      default: true
+    }
   },
   components: {Icon},
   setup(props, context) {
@@ -102,6 +106,9 @@ export default {
       transition: all .3s ease;
       &.active {
         transform: rotate(90deg);
+      }
+      &.inVisible {
+        display: none;
       }
     }
   }
