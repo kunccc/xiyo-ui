@@ -17,23 +17,17 @@
     <div class="feature">
       <ul>
         <li>
-          <svg class="icon">
-            <use xlink:href="#icon-vue"></use>
-          </svg>
+          <Icon name="vue"/>
           <h3>基于 Vue3</h3>
           <p>使用了 Vue3 Composition API</p>
         </li>
         <li>
-          <svg class="icon">
-            <use xlink:href="#icon-ts"></use>
-          </svg>
+          <Icon name="ts"/>
           <h3>基于 TypeScript</h3>
           <p>源代码采用 TypeScript 书写</p>
         </li>
         <li>
-          <svg class="icon light">
-            <use xlink:href="#icon-light"></use>
-          </svg>
+          <Icon name="light"/>
           <h3>代码易读</h3>
           <p>所有组件的代码都十分简洁</p>
         </li>
@@ -44,9 +38,10 @@
 
 <script lang="ts">
 import TopNav from '../components/TopNav.vue';
+import Icon from '../components/Icon.vue';
 
 export default {
-  components: {TopNav},
+  components: {TopNav, Icon},
 };
 </script>
 

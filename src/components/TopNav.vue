@@ -1,14 +1,10 @@
 <template>
   <div class="topNav" v-if="topNavVisible">
     <div title="菜单" :class="{asideVisible}">
-      <svg class="toggleAside" @click="toggleAside">
-        <use xlink:href="#icon-menu"></use>
-      </svg>
+      <Icon name="menu" class="toggleAside" @click="toggleAside"/>
     </div>
     <router-link to="/" class="logo" title="首页">
-      <svg class="icon">
-        <use xlink:href="#icon-xiyo"></use>
-      </svg>
+      <Icon name="xiyo"/>
       <img src="../assets/xiyo-logo.png">
     </router-link>
   </div>
@@ -16,6 +12,7 @@
 
 <script lang="ts">
 import {inject, Ref} from 'vue';
+import Icon from './Icon.vue';
 
 export default {
   props: {
@@ -24,6 +21,7 @@ export default {
       default: false
     }
   },
+  components: {Icon},
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible');
     const toggleAside = () => {

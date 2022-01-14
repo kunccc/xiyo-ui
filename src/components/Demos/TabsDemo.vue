@@ -3,7 +3,8 @@
   <p>分隔不同类别内容的选项卡组</p>
   <Demo :component="Tabs1Demo"/>
   <Demo :component="Tabs2Demo"/>
-  <Attribute :attributes="attributes"/>
+  <Attribute :attributes="attributes1" title="Tabs Attributes"/>
+  <Attribute :attributes="attributes2" title="Tab Attributes"/>
 </template>
 
 <script lang="ts">
@@ -15,7 +16,7 @@ import Attribute from '../Attribute.vue';
 export default {
   components: {Demo, Attribute},
   setup() {
-    const attributes = [
+    const attributes1 = [
       {
         parameter: 'selected',
         description: '当前选中标签的 title 属性',
@@ -29,7 +30,14 @@ export default {
         default: 'normal'
       }
     ];
-    return {Tabs1Demo, Tabs2Demo, attributes};
+    const attributes2 = [
+      {
+        parameter: 'title',
+        description: 'Tab 的标题',
+        type: 'string'
+      }
+    ];
+    return {Tabs1Demo, Tabs2Demo, attributes1, attributes2};
   }
 };
 </script>

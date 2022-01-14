@@ -6,9 +6,7 @@
         <component :is="component"/>
       </div>
       <div class="demo-content-action" @click="codeVisible = !codeVisible">
-        <svg class="icon" :class="{codeVisible}">
-          <use xlink:href="#icon-arrow"></use>
-        </svg>
+        <Icon name="arrow" :class="{codeVisible}"/>
         <div class="demo-content-action-button">
           <Button theme="link" v-if="!codeVisible">查看代码</Button>
           <Button theme="link" v-else>隐藏代码</Button>
@@ -23,6 +21,7 @@
 
 <script lang="ts">
 import Button from '../lib/Button.vue';
+import Icon from './Icon.vue';
 import 'prismjs';
 import 'prismjs/themes/prism.css';
 import {computed, ref} from 'vue';
@@ -30,7 +29,7 @@ import {computed, ref} from 'vue';
 const Prism = (window as any).Prism;
 
 export default {
-  components: {Button},
+  components: {Button, Icon},
   props: {
     component: Object
   },

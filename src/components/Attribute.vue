@@ -1,5 +1,5 @@
 <template>
-  <h3>Attributes</h3>
+  <h3>{{ title ? title : 'Attributes' }}</h3>
   <table>
     <thead>
     <tr>
@@ -25,7 +25,8 @@
 <script lang="ts">
 export default {
   props: {
-    attributes: []
+    title: String,
+    attributes: Array
   }
 };
 </script>
@@ -35,6 +36,7 @@ table {
   font-size: 14px;
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 50px;
   tr {
     border-bottom: 1px solid #ddd;
     th {

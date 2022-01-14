@@ -39,7 +39,9 @@ export default {
       const left = left2 - left1;
       indicator.value.style.left = left + 'px';
     }, {flush: 'post'});
+    // 获取子组件
     const subtags = context.slots.default();
+    // 检查子组件类型
     subtags.forEach(tag => {
       if (tag.type !== Tab) throw new Error('The subtag of Tabs must be Tab');
     });

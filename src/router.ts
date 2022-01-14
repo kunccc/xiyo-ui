@@ -5,6 +5,7 @@ import SwitchDemo from './components/Demos/SwitchDemo.vue';
 import DialogDemo from './components/Demos/DialogDemo.vue';
 import ButtonDemo from './components/Demos/ButtonDemo.vue';
 import TabsDemo from './components/Demos/TabsDemo.vue';
+import CollapseDemo from './components/demos/CollapseDemo.vue';
 import Markdown from './components/Markdown.vue';
 import intro from './markdown/intro.md';
 import install from './markdown/install.md';
@@ -26,7 +27,8 @@ export const router = createRouter({
         {path: 'switch', component: SwitchDemo},
         {path: 'dialog', component: DialogDemo},
         {path: 'button', component: ButtonDemo},
-        {path: 'tabs', component: TabsDemo}
+        {path: 'tabs', component: TabsDemo},
+        {path: 'collapse', component: CollapseDemo}
       ]
     }
   ]
