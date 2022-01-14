@@ -6,7 +6,7 @@
           {{ t }}
           <Icon name="arrow2" :class="{active: [...active].indexOf(t) >= 0}"/>
         </div>
-        <div class="xiyo-collapse-content">
+        <div class="xiyo-collapse-content" :ref="setRef">
           <component :is="subTags[index]" :key="subTags[index].props.title"/>
         </div>
       </li>
@@ -17,16 +17,17 @@
 <script lang="ts">
 import CollapseItem from './CollapseItem.vue';
 import Icon from '../components/Icon.vue';
-import {onMounted} from 'vue';
+import {onMounted, ref} from 'vue';
 
 export default {
   props: {
-    active: {
-      type: Array
-    }
+    active: Array,
+    accordion: Boolean
   },
   components: {Icon},
   setup(props, context) {
+    const contents = ref([]);
+    const setRef = el => contents.value.push(el);
     // 获取子组件
     const subTags = context.slots.default();
     // 检查子组件类型
@@ -34,33 +35,49 @@ export default {
       if (tag.type !== CollapseItem) throw new Error('The subtag of Tabs must be CollapseItem');
     });
     const titles = subTags.map(tag => tag.props.title);
-    // 已经激活的所有标题 非数组 转化为数组
     // 声明 heightArr 用来存放所有内容的高度
     let heightArr = [];
-    let contents;
     onMounted(() => {
-      contents = document.querySelectorAll('.xiyo-collapse-content');
-      contents.forEach(content => heightArr.push(content.scrollHeight));
-      // 页面第一次加载时 将用户所传的已经激活的 content 高度激活
-      props.active.forEach(item => {
-        const index = titles.indexOf(item);
-        contents[index].style.height = heightArr[index] + 16 + 'px';
-      });
+      // 将所有内容的高度推入数组存储
+      contents.value.forEach(content => heightArr.push(content.scrollHeight));
+      // 页面第一次加载时 激活 content 高度
+      if (props.accordion) {
+        if (props.active.length >= 2) throw new Error('Property active can only has one item');
+        const index = titles.indexOf(props.active[0]);
+        contents.value[index].style.height = heightArr[index] + 16 + 'px';
+      } else {
+        props.active.forEach(item => {
+          const index = titles.indexOf(item);
+          contents.value[index].style.height = heightArr[index] + 16 + 'px';
+        });
+      }
     });
     const select = (title: string) => {
-      const active = [...props.active];
+      let {active} = props;
       const activeIndex = active.indexOf(title);
       const allIndex = titles.indexOf(title);
+      if (props.accordion) {
+        if (active[0] === title) {
+          contents.value[allIndex].style.height = 0;
+          active = [];
+        } else {
+          contents.value.forEach(content => content.style.height = 0);
+          contents.value[allIndex].style.height = heightArr[allIndex] + 16 + 'px';
+          active = [title];
+        }
+        context.emit('update:active', active);
+        return;
+      }
       if (activeIndex >= 0) {
-        contents[allIndex].style.height = 0;
+        contents.value[allIndex].style.height = 0;
         active.splice(activeIndex, 1);
       } else {
-        contents[allIndex].style.height = heightArr[allIndex] + 16 + 'px';
+        contents.value[allIndex].style.height = heightArr[allIndex] + 16 + 'px';
         active.push(title);
       }
       context.emit('update:active', active);
     };
-    return {titles, subTags, select};
+    return {titles, subTags, select, setRef};
   }
 };
 </script>
@@ -94,6 +111,7 @@ export default {
     transition: all .3s ease;
     font-size: 13px;
     color: #333;
+    padding-right: 20px;
   }
 }
 </style>
