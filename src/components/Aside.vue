@@ -56,7 +56,7 @@ export default {
   left: 0;
   z-index: 9;
   box-shadow: 1px 0 1px rgba(0, 0, 0, .1);
-  transition: all .3s;
+  transition: all .4s ease;
   p {
     font-size: 22px;
     margin: 20px 0 10px;
@@ -75,7 +75,7 @@ export default {
 }
 @media (max-width: 500px) {
   .aside {
-    transform: translateX(-200px);
+    transform: translateX(-223px);
     &.asideVisible {
       transform: translateX(0);
     }

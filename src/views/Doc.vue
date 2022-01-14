@@ -43,7 +43,7 @@ export default {
 .content {
   main {
     padding: 92px 40px 80px 262px;
-    transition: all .3s;
+    transition: all .4s ease;
   }
 }
 @media (max-width: 500px) {
@@ -51,7 +51,7 @@ export default {
     main {
       padding-left: 28px;
       &.asideVisible {
-        transform: translateX(200px);
+        transform: translateX(223px);
       }
     }
   }

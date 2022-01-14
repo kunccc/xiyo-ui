@@ -58,7 +58,7 @@ export default {
   }
   .toggleAside {
     position: absolute;
-    top: 18px;
+    top: 28px;
     left: 28px;
     width: 20px;
     height: 20px;
@@ -72,7 +72,10 @@ export default {
       fill: #FF8D78;
     }
   }
-  @media (max-width: 500px) {
+}
+@media (max-width: 500px) {
+  .topNav {
+    padding: 13px 16px 15px;
     .logo {
       margin: 4px auto 0;
     }
@@ -80,7 +83,7 @@ export default {
       display: none;
     }
     .toggleAside {
-      top: 14px;
+      top: 19px;
       display: inline-block;
     }
   }
