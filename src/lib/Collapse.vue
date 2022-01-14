@@ -118,7 +118,6 @@ export default {
     transition: all .3s ease;
     font-size: 13px;
     color: #333;
-    padding-right: 20px;
   }
 }
 </style>
